@@ -22,20 +22,14 @@
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li
-              %a{:href => "/pa"}
+              %a{:href => "/ta"}
                 Home
-            - unless client_signed_in?
+            - if inputter_signed_in?
               %li
-                %a{:href => sign_in_clients_path}
-                  Sign in
-            - if client_signed_in?
-              %li
-                = link_to 'Sign out', sign_out_clients_path, :method => :delete
-
+                = link_to 'Sign out', sign_out_inputters_path, :method => :delete
 
     .container
       = yield
-
 
     - if @content_for_javascript
       = @content_for_javascript

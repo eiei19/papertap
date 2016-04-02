@@ -1,0 +1,23 @@
+.row.col-md-6
+  - if inputter_signed_in?
+    %h1
+      OK, Let's go #{current_inputter.name}
+
+  - else
+    - unless @inputter
+      %h1
+        Please sign up with Facebook
+        %a{href: "/auth/facebook"}
+          sign up
+
+    - else
+      = form_for @inputter do |f|
+        = f.hidden_field :fb_token
+        .form-group
+          = f.text_field :name, class: "form-control", :placeholder => "Name"
+
+        .form-group
+          = f.text_field :email, class: "form-control", :placeholder => "Email", :type => "email"
+
+        %button.btn.btn-primary{:type => "submit"} Submit
+

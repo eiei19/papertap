@@ -1,0 +1,16 @@
+.row.col-md-6
+  %h1
+    Please sign in
+
+  - if flash[:alert]
+    .alert.alert-danger
+      = flash[:alert]
+
+  = form_tag do_sign_in_clients_path do |f|
+    .form-group
+      = text_field_tag :email, params[:email], class: "form-control", :placeholder => "Email", :type => "email"
+
+    .form-group
+      = text_field_tag :password, params[:password], class: "form-control", :placeholder => "Password", :type => "password"
+
+    %button.btn.btn-primary{:type => "submit"} Submit
