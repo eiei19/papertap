@@ -1,0 +1,15 @@
+.page-header
+  %h1 PaperTap
+
+#dropzone{ondragover: "event.preventDefault()"}
+  Drop file here
+
+%button#btnViewRel.btn.btn-primary
+  VIEW
+
+#document
+  %img#example{src: "https://s3-ap-northeast-1.amazonaws.com/bukkakun-dev/doc.png"}
+
+- @content_for_javascript = capture do
+  = javascript_include_tag "jquery.selectareas.min"
+  = javascript_include_tag "walk"
